@@ -1,7 +1,10 @@
-setNbMails();
+// Compute number of messages
+setNbMessages();
+
+// Attach click listeners to trash images
 setTrashListeners();
 
-function setNbMails() {
+function setNbMessages() {
     let nbMails = document.getElementsByClassName('message').length;
     let mailCounts = document.getElementsByClassName('mail-count-val');
     // Replace text of all mail-count-val elements
@@ -17,7 +20,7 @@ function setTrashListeners() {
         trashElems[i].addEventListener("click", function() {
             // Get parent element and remove it
             this.parentNode.remove();
-            setNbMails();
+            setNbMessages();
         });
     }
 }
@@ -28,7 +31,7 @@ for (let i=0;i<mailAddElems.length;i++) {
     let btn=mailAddElems[i];
     btn.addEventListener("click", function() {
         // Get message from input
-        let newMailText = this.parentNode.querySelector(".mail-input").value;
+        let newMailText = document.getElementById("mail-input").value;
     
         // Create new mail-elem div
         let newMail = document.createElement("div");
@@ -63,7 +66,7 @@ for (let i=0;i<mailAddElems.length;i++) {
         trash.addEventListener("click", function() {
             // Get parent element and remove it
             this.parentNode.remove();
-            setNbMails();
+            setNbMessages();
         });
 
         newMail.appendChild(icon);
@@ -72,12 +75,12 @@ for (let i=0;i<mailAddElems.length;i++) {
 
         // Append newMail to mail-box
         let mailBox = document.getElementById("mail-box");
-        mailBox.appendChild(newMail);
+        mailBox.prepend(newMail);
 
         // Reset number of messages
-        setNbMails();
+        setNbMessages();
 
         // Reset input
-        this.parentNode.querySelector(".mail-input").value = "";
+        document.getElementById("mail-input").value = "";
     });
 }

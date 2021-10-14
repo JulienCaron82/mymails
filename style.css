@@ -6,13 +6,29 @@
     background-color: #FFFFFF;
 }
 
-main {
+.row {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #F5F6FA;
     height: 100vh;
+}
+
+#mail-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F6FA;
+    width: 50%;
 }
 
 #mail-box {
@@ -20,12 +36,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 50%;
-    background-color: #F5F6FA;
+    width: 100%;
 }
 
-.mail-elem, .row {
+.mail-elem, #mail-new-box, #mail-count-box {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -38,6 +52,7 @@ main {
 
 #mail-count-box {
     height: 50px;
+    width: 100%;
     justify-content: flex-start;
 }
 
@@ -46,19 +61,23 @@ main {
 }
 
 #mail-new-box {
-    justify-content: space-around;
+    justify-content: flex-start;
     height: 50px;
     width: 100%;
 }
 
+#mail-new-box div {
+    margin-left: 10px;
+    width: 80%;
+}
+
 .mail-input {
-    padding-left: 10px;
     height: 20px;
-    width: 88%;
+    width: 100%;
 }
 
 .mail-add-btn {
-    width: 6%;
+    width: 50px;
     height: 20px;
     border: 2px solid skyblue;
     border-radius: 5px;
