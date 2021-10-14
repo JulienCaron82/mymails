@@ -1,0 +1,111 @@
+* {
+    font-family:"Open Sans normal";
+    font-size: 14px;
+    padding: 0;
+    margin:0;
+    background-color: #FFFFFF;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F6FA;
+    height: 100vh;
+}
+
+#mail-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    background-color: #F5F6FA;
+}
+
+.mail-elem, .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    border: 1px solid #DADADA;
+    border-radius: 5px;
+}
+
+#mail-count-box {
+    height: 50px;
+    justify-content: flex-start;
+}
+
+#mail-count-box p {
+    padding-left: 10px;
+}
+
+#mail-new-box {
+    justify-content: space-around;
+    height: 50px;
+    width: 100%;
+}
+
+.mail-input {
+    padding-left: 10px;
+    height: 20px;
+    width: 88%;
+}
+
+.mail-add-btn {
+    width: 6%;
+    height: 20px;
+    border: 2px solid skyblue;
+    border-radius: 5px;
+    font-size: 12px;;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: skyblue;
+}
+
+.mail-count-val  {
+    font-weight: bold;
+}
+
+.author-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    padding: 15px;
+    border: 0px;
+    border-radius: 50%;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+
+.author {
+    font-weight: bold;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.content {
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.trash {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+}
