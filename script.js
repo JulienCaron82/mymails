@@ -1,86 +1,83 @@
+fixLastMail();
+
 // Compute number of messages
 setNbMessages();
 
 // Attach click listeners to trash images
-setTrashListeners();
+$("#mail-box").on("click", ".trash", function() {
+    $(this).parent().remove();
+
+    // Set last-row class to last visible mail
+    fixLastMail();
+
+    // Reset number of messages
+    setNbMessages();
+});
+
+function fixLastMail() {
+    $("#mail-box").children().removeClass("last-mail");
+    $("#mail-box").children().filter(function() {
+        return ($(this).css("display") != "none")
+    }).last().addClass("last-mail");
+}
 
 function setNbMessages() {
-    let nbMails = document.getElementsByClassName('message').length;
-    let mailCounts = document.getElementsByClassName('mail-count-val');
-    // Replace text of all mail-count-val elements
-    for (let i=0;i<mailCounts.length;i++) {
-        mailCounts[i].textContent = nbMails;
-    }
+    $("#mail-count-val").text(
+        $(".mail").filter(function() {return ($(this).css("display") != "none")}).length
+    );
 }
 
-// Add click listener to all trash elements
-function setTrashListeners() {
-    let trashElems = document.getElementsByClassName('trash');
-    for (let i=0;i<trashElems.length;i++) {
-        trashElems[i].addEventListener("click", function() {
-            // Get parent element and remove it
-            this.parentNode.remove();
-            setNbMessages();
-        });
-    }
-}
+// Add click listener to mail-add-btn
+$("#mail-add-btn").click(function() {
+    // Retrieve message and prepend message to mail-box
+    let message = $("#mail-input").val();
+    $("#mail-box").prepend(`<div class="mail box row">
+        <img class="author-icon" src="assets/avatar-1.jpg" alt="">
+        <div class="message">
+            <h6 class="author">Julien Caron</h6>
+            <p class="content">${message}</p>
+        </div>
+        <img class="trash" src="assets/trash.png" alt="">
+    </div>`);
 
-// Add click listener to mail-add-btn elements
-let mailAddElems = document.getElementsByClassName('mail-add-btn');
-for (let i=0;i<mailAddElems.length;i++) {
-    let btn=mailAddElems[i];
-    btn.addEventListener("click", function() {
-        // Get message from input
-        let newMailText = document.getElementById("mail-input").value;
+    // Set last-row class to last visible mail
+    fixLastMail();
+
+    // Reset number of messages
+    setNbMessages();
+
+    // Reset input
+    $("#mail-input").val("");
+});
+
+// Add click listener to search-btn
+$("#search-btn").click(function() {
+    // Retrieve search input
+    let search = $("#search-input").val();
+
+    // Show only messages with author == search
+    $(".mail").each(function() {
+        if ($(this).children(".message").first().children(".author").first().text() == search) {
+            $(this).fadeIn();
+        } else {
+            $(this).fadeOut();
+        }
+    })
+
+    // Set last-row class to last visible mail
+    fixLastMail();
     
-        // Create new mail-elem div
-        let newMail = document.createElement("div");
-        newMail.classList.add("mail-elem", "row");
+    // Reset number of messages
+    setNbMessages();
 
-        // Append icon, message and trash to newMail
-        let icon = document.createElement("img");
-        icon.classList.add("author-icon");
-        icon.src = "./assets/avatar-1.jpg";
-        icon.alt = "avatar";
+    // Reset search
+    $("#search-input").val("");
+});
 
-        let message = document.createElement("div");
-        message.classList.add("message");
+// Add click listener to reset-btn
+$("#reset-btn").click(function() {
+    $("#mail-box").children().each(function() {$(this).css("display", "flex")});
 
-        let author = document.createElement("h6");
-        author.classList.add("author");
-        author.textContent = "Julien Caron";
-        
-        let content = document.createElement("p");
-        content.classList.add("content");
-        content.textContent = newMailText;
-
-        message.appendChild(author);
-        message.appendChild(content);
-
-        let trash = document.createElement("img");
-        trash.classList.add("trash");
-        trash.src = "./assets/trash.png";
-        trash.alt = "trash";
-
-        // Add listener on new message
-        trash.addEventListener("click", function() {
-            // Get parent element and remove it
-            this.parentNode.remove();
-            setNbMessages();
-        });
-
-        newMail.appendChild(icon);
-        newMail.appendChild(message);
-        newMail.appendChild(trash);
-
-        // Append newMail to mail-box
-        let mailBox = document.getElementById("mail-box");
-        mailBox.prepend(newMail);
-
-        // Reset number of messages
-        setNbMessages();
-
-        // Reset input
-        document.getElementById("mail-input").value = "";
-    });
-}
+    // Set last-row class to last visible mail
+    fixLastMail();
+});

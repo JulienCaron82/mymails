@@ -2,25 +2,35 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     </head>
     <body>
         <main>
             <div id="mail-area">
-                <div id="mail-count-box" class="row">
+                <div id="mail-count-box" class="box row">
                     <p>
-                        Messages total: <span class="mail-count-val">0</span>
+                        Messages total: <span id="mail-count-val">0</span>
                     </p>
-                </div>
-                <div id="mail-new-box" class="row">
                     <div class="row">
-                        <input id="mail-input" type="text" value="" required placeholder="New mesage"></textarea>
+                        <input id="search-input" type="text" value="" required placeholder="search"></textarea>
                         <div>
-                            <button class="mail-add-btn">Add</button>
+                            <button id="search-btn" class="ok">OK</button>
+                        </div>
+                        <div>
+                            <button id="reset-btn" class="ok">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="mail-new-box" class="box row">
+                    <div class="row">
+                        <input id="mail-input" type="text" value="" required placeholder="Type new mesage here"></textarea>
+                        <div>
+                            <button id="mail-add-btn" class="ok">Add</button>
                         </div>
                     </div>
                 </div>
                 <div id="mail-box">
-                    <div class="mail-elem row">
+                    <div class="mail box row">
                         <img
                         class="author-icon" 
                         src="assets/avatar-1.jpg"
@@ -39,7 +49,7 @@
                         >
                     </div>
                     
-                    <div class="mail-elem row">
+                    <div class="mail box row">
                         <img
                         class="author-icon" 
                         src="assets/avatar-2.jpg"
@@ -58,7 +68,7 @@
                         >
                     </div>
                     
-                    <div class="mail-elem row">
+                    <div class="mail box row">
                         <img
                         class="author-icon" 
                         src="assets/avatar-3.jpg"
@@ -77,7 +87,7 @@
                         >
                     </div>
                     
-                    <div class="mail-elem row">
+                    <div class="mail box row">
                         <img
                         class="author-icon" 
                         src="assets/avatar-4.jpg"
@@ -96,7 +106,7 @@
                         >
                     </div>
                     
-                    <div class="mail-elem row">
+                    <div class="mail box row">
                         <img
                         class="author-icon" 
                         src="assets/avatar-5.jpg"
