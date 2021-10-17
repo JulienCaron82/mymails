@@ -1,4 +1,4 @@
-fixLastMail();
+fixLastBoxBorder();
 
 // Compute number of messages
 setNbMessages();
@@ -8,17 +8,17 @@ $("#mail-box").on("click", ".trash", function() {
     $(this).parent().remove();
 
     // Set last-row class to last visible mail
-    fixLastMail();
+    fixLastBoxBorder();
 
     // Reset number of messages
     setNbMessages();
 });
 
-function fixLastMail() {
-    $("#mail-box").children().removeClass("last-mail");
-    $("#mail-box").children().filter(function() {
+function fixLastBoxBorder() {
+    $(".box").removeClass("last-box");
+    $(".box").filter(function() {
         return ($(this).css("display") != "none")
-    }).last().addClass("last-mail");
+    }).last().addClass("last-box");
 }
 
 function setNbMessages() {
@@ -33,7 +33,7 @@ $("#mail-add-btn").click(function() {
     let message = $("#mail-input").val();
     $("#mail-box").prepend(`<div class="mail box row">
         <img class="author-icon" src="assets/avatar-1.jpg" alt="">
-        <div class="message">
+        <div class="message column">
             <h6 class="author">Julien Caron</h6>
             <p class="content">${message}</p>
         </div>
@@ -41,7 +41,7 @@ $("#mail-add-btn").click(function() {
     </div>`);
 
     // Set last-row class to last visible mail
-    fixLastMail();
+    fixLastBoxBorder();
 
     // Reset number of messages
     setNbMessages();
@@ -65,7 +65,7 @@ $("#search-btn").click(function() {
     })
 
     // Set last-row class to last visible mail
-    fixLastMail();
+    fixLastBoxBorder();
     
     // Reset number of messages
     setNbMessages();
@@ -79,5 +79,5 @@ $("#reset-btn").click(function() {
     $("#mail-box").children().each(function() {$(this).css("display", "flex")});
 
     // Set last-row class to last visible mail
-    fixLastMail();
+    fixLastBoxBorder();
 });

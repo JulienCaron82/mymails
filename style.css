@@ -6,26 +6,34 @@
 }
 
 main {
+    background-color: #F5F6FA;
+    height: 100%;
+    width: 100%;
+    padding: 20px 0;
+}
+
+h6 {
+    font-weight: bold;
+    padding: 10px 0;
+    margin: 0;
+}
+
+/* Classes */
+.column {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #F5F6FA;
-    height: 100vh;
 }
 
 .row {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
     text-align: left;
     width: 100%;
     border-top: 1px solid #DADADA;
@@ -36,74 +44,11 @@ main {
     background-color: #FFFFFF;
 }
 
-.ok {
-    width: 50px;
-    height: 20px;
-    border: 2px solid skyblue;
-    border-radius: 5px;
-    font-size: 12px;;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    color: skyblue;
-    background-color: #FFFFFF;
-}
-
-.last-mail {
+.last-box {
     border-bottom: 1px solid #DADADA;
-}    
-
-#mail-area {
-    width: 30%;
 }
 
-#mail-count-box {
-    height: 50px;
-    width: 100%;
-    justify-content: flex-start;
-}
-
-#mail-count-box p {
-    padding-left: 10px;
-}
-#mail-count-box div {
-    padding-left: 20px;
-}
-
-#search-input {
-    height: 20px;
-    width: 50%;
-}
-
-#mail-new-box {
-    justify-content: flex-start;
-    height: 60px;
-    width: 100%;
-}
-
-#mail-new-box div {
-    margin-left: 10px;
-    width: 100%;
-}
-
-#mail-box {
-    width: 100%;
-}
-
-#mail-input {
-    padding-left: 10px;
-    height: 40px;
-    width: 80%;
-}
-
-#mail-add-btn {
-    margin-left: 20px;
-    width: 50px;
-}
-
-#mail-count-val  {
-    font-weight: bold;
-}
-
+/* Messages area */
 .author-icon {
     display: flex;
     flex-direction: column;
@@ -119,19 +64,14 @@ main {
     border-radius: 50%;
 }
 
+.row.mail {
+    justify-content: space-between;
+}
+
 .message {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     width: 80%;
     min-height: 100px;
     max-height: 200px;
-}
-
-.author {
-    font-weight: bold;
-    padding: 10px 0;
-    margin: 0;
 }
 
 .content {
@@ -149,6 +89,72 @@ main {
     padding: 10px;
 }
 
+.ok {
+    border: 2px solid skyblue;
+    border-radius: 5px;
+    font-size: 12px;;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: skyblue;
+    background-color: #FFFFFF;
+    padding: 3px 3px;
+}
+
+/* IDs */
+#mail-area {
+    margin: auto auto;
+    width: 40%;
+    min-width: 300px;
+    min-height:100vh;
+}
+
+/* Count and search author */
+#mail-count-box {
+    height: 50px;
+    width: 100%;
+}
+
+#mail-count {
+    margin-left: 10px;
+}
+#mail-count-box div {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#mail-count-val  {
+    font-weight: bold;
+}
+
+#search-input {
+    height: 20px;
+    width: 50%;
+    min-width: 10px;
+    padding-left: 10px;
+}
+
+/* New Mail */
+#mail-new-box {
+    height: 60px;
+    width: 100%;
+}
+
+#mail-new-box div {
+    margin-left: 10px;
+}
+
+#mail-box {
+    width: 100%;
+}
+
+#mail-input {
+    padding-left: 10px;
+    height: 40px;
+    max-width: 80%;
+    min-width: 150px;
+}
+
+/* pseudo-classes effects */
 input:hover {
     border-color: black;
 }
